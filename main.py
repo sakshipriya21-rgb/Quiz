@@ -1,3 +1,4 @@
+import time
 questions=[
     {
         "question":"Who invented the differential and integral calculus?",
@@ -52,15 +53,26 @@ questions=[
 ]
 score=0
 count=1
+timee=0
 print("Let's start the QUIZ!")
+print("You have got 10 seconds per question!")
 for q in questions:
     print("Q",count,".",q["question"])
     print(q["options"])
+    start=time.time()
     userInput=input("Enter your answer :").upper()
-    if(userInput==q["answer"]):
-        score+=1
-        print("CORRECT ANSWER!")
+    end=time.time()
+    print("You took",end-start,"seconds time.")
+    timee+=end-start
+    if end-start>10:
+        print("Time is up!")
+        continue
     else:
-        print("WRONG ANSWER!")
-    count+=1
+        if(userInput==q["answer"]):
+            score+=1
+            print("CORRECT ANSWER!")
+        else:
+            print("WRONG ANSWER!")
+        count+=1
 print("Your score is :",score,"/10")
+print("Total time taken is :",timee)
