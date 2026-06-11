@@ -55,7 +55,7 @@ score=0
 count=1
 timee=0
 print("Let's start the QUIZ!")
-print("You have got 10 seconds per question!")
+print("You have got 15 seconds per question!")
 for q in questions:
     print("Q",count,".",q["question"])
     print(q["options"])
@@ -64,7 +64,7 @@ for q in questions:
     end=time.time()
     print("You took",end-start,"seconds time.")
     timee+=end-start
-    if end-start>10:
+    if end-start>15:
         print("Time is up!")
         continue
     else:
@@ -73,6 +73,6 @@ for q in questions:
             print("CORRECT ANSWER!")
         else:
             print("WRONG ANSWER!")
-        count+=1
+    count+=1
 print("Your score is :",score,"/10")
 print("Total time taken is :",timee)
